@@ -1,13 +1,21 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
+import React, { useState, useEffect } from 'react';
+import Radar from '../components/Radar';
+import CoordinateForm from '../components/CoordinateForm';
 
-const inter = Inter({ subsets: ['latin'] })
+const Home: React.FC = () => {
+  const [signals, setSignals] = useState([]);
 
-export default function Home() {
+  const handleSend = (x: number, y: number) => {
+    // Aquí puedes hacer una llamada a tu API para obtener las señales para las coordenadas dadas
+    // y luego actualizar el estado de las señales.
+  };
+
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-    </main>
-  )
-}
+    <div>
+      <CoordinateForm onSend={handleSend} />
+      <Radar signals={signals} />
+    </div>
+  );
+};
+
+export default Home;
